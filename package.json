@@ -1,0 +1,26 @@
+{
+	"name": "astro-layers-demo",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"devDependencies": {
+		"@astrojs/solid-js": "^1.0.0",
+		"astro": "^1.0.3",
+		"prettier-plugin-astro": "^0.5.0",
+		"solid-js": "^1.4.8"
+	},
+	"prettier": {
+		"useTabs": true,
+		"tabWidth": 2,
+		"printWidth": 100,
+		"prettier.documentSelectors": [
+			"**/*.astro"
+		]
+	}
+}
