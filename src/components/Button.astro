@@ -1,0 +1,27 @@
+<button {...Astro.props}>
+	<slot />
+</button>
+
+<style>
+	@layer components {
+		button {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: var(--space-xs);
+			background-color: var(--background-1);
+			border-radius: var(--space-3xs);
+			border: 1px solid;
+			padding-inline: var(--space-xs);
+			padding-block: var(--space-2xs);
+		}
+	}
+
+	@layer overrides {
+		@media (forced-colors: active) {
+			section {
+				border: 1px solid;
+			}
+		}
+	}
+</style>

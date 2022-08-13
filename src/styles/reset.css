@@ -1,0 +1,109 @@
+@layer reset {
+	*,
+	*::before,
+	*::after {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		line-height: calc(1em + 0.5rem);
+	}
+
+	html {
+		line-sizing: normal;
+		-webkit-text-size-adjust: none;
+	}
+
+	html:focus-within {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		-webkit-font-smoothing: antialiased;
+	}
+
+	input,
+	button,
+	textarea,
+	select {
+		font: inherit;
+		color: inherit;
+	}
+
+	button,
+	label {
+		cursor: pointer;
+	}
+
+	button:disabled {
+		cursor: not-allowed;
+	}
+
+	label:has(> input:disabled),
+	label:has(+ input:disabled) {
+		cursor: not-allowed;
+	}
+
+	a[class] {
+		text-decoration: none;
+		color: inherit;
+	}
+
+	ul,
+	ol {
+		list-style: none;
+		padding: 0;
+	}
+
+	img,
+	svg,
+	video,
+	canvas,
+	audio,
+	iframe,
+	embed,
+	object {
+		display: block;
+		vertical-align: middle;
+	}
+
+	img,
+	picture,
+	svg {
+		max-width: 100%;
+		height: auto;
+	}
+
+	p,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		overflow-wrap: break-word;
+	}
+
+	hr {
+		border-width: 1px 0 0 0;
+		color: inherit;
+		height: 0;
+		overflow: visible;
+	}
+}
+
+@layer overrides {
+	@media (prefers-reduced-motion: reduce) {
+		html:focus-within {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms;
+			animation-iteration-count: 1;
+			transition-duration: 0.01ms;
+			scroll-behavior: auto;
+		}
+	}
+}

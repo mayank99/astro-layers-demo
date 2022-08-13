@@ -1,0 +1,59 @@
+---
+import "~/styles/reset.css";
+import "~/styles/tokens.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Meow</title>
+
+		<style is:inline>
+			@layer reset, tokens, global, components, page, overrides;
+		</style>
+	</head>
+
+	<body>
+		<slot />
+
+		<style is:inline>
+			@import url("https://unpkg.com/open-props/gray.min.css") layer(tokens.props);
+			@import url("https://unpkg.com/open-props/violet.min.css") layer(tokens.props);
+			@import url("https://unpkg.com/open-props/shadows.min.css") layer(tokens.props);
+		</style>
+
+		<style is:global>
+			@layer global {
+				html {
+					font-family: system-ui, sans-serif;
+					color-scheme: dark light;
+				}
+
+				body {
+					height: 100vh;
+					height: 100dvh;
+					display: grid;
+					justify-items: center;
+					background: var(--background-2);
+					color: var(--text-2);
+					font-size: var(--step-0);
+				}
+
+				h1 {
+					color: var(--text-1);
+					font-size: var(--step-4);
+				}
+
+				h2 {
+					color: var(--text-1);
+					font-size: var(--step-2);
+				}
+
+				*:focus-visible {
+					outline: 2px solid var(--accent-1);
+					outline-offset: 2px;
+				}
+			}
+		</style>
+	</body>
+</html>

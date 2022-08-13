@@ -1,0 +1,25 @@
+<section {...Astro.props}>
+	<slot />
+</section>
+
+<style>
+	@layer components {
+		section {
+			display: grid;
+			gap: var(--space-xs);
+			align-self: start;
+			background: var(--background-1);
+			border-radius: var(--space-3xs);
+			padding: var(--space-s);
+			box-shadow: var(--shadow-2);
+		}
+	}
+
+	@layer overrides {
+		@media (forced-colors: active) {
+			section {
+				border: 1px solid;
+			}
+		}
+	}
+</style>
