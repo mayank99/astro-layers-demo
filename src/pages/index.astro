@@ -45,7 +45,7 @@ import Card from "~/components/Card.astro";
 					<Input type="email" placeholder="you@example.com" required />
 				</label>
 
-				<Button>Sign up</Button>
+				<Button class="cta">Sign up</Button>
 			</form>
 		</Card>
 	</main>
@@ -75,6 +75,12 @@ import Card from "~/components/Card.astro";
 
 		hr {
 			margin-block: var(--space-xs);
+		}
+
+		.cta {
+			border: none;
+			background-color: var(--accent-2);
+			color: var(--text-1);
 		}
 	}
 </style>

@@ -49,9 +49,13 @@ import "~/styles/tokens.css";
 					font-size: var(--step-2);
 				}
 
-				*:focus-visible {
+				:focus-visible {
 					outline: 2px solid var(--accent-1);
 					outline-offset: 2px;
+				}
+
+				::selection {
+					background: var(--accent-2);
 				}
 			}
 		</style>
