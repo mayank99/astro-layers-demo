@@ -3,6 +3,7 @@ import Layout from "./_layout.astro";
 import Button from "~/components/Button.astro";
 import Input from "~/components/Input.astro";
 import Card from "~/components/Card.astro";
+import Form from "~/components/Form";
 
 const { request } = Astro;
 
@@ -12,6 +13,10 @@ if (request.method === "POST") {
 	switch (request.headers.get("Content-Type")) {
 		case "application/json": {
 			data = await request.json();
+
+			// artificial delay to show the loading state
+			await new Promise((resolve) => setTimeout(resolve, 2000));
+
 			return new Response("we gucci", { status: 200 });
 		}
 		case "application/x-www-form-urlencoded": {
@@ -54,7 +59,7 @@ if (request.method === "POST") {
 				Object.entries(data).length === 0 ? (
 					<>
 						<h2>Sign up for a sneak peak</h2>
-						<form method="post">
+						<Form method="post" client:load>
 							<label>
 								<span>Name</span>
 								<Input type="text" placeholder="You" name="name" />
@@ -65,8 +70,10 @@ if (request.method === "POST") {
 								<Input type="email" placeholder="you@example.com" name="email" required />
 							</label>
 
-							<Button class="cta">Sign up</Button>
-						</form>
+							<Button class="cta" type="submit">
+								Sign up
+							</Button>
+						</Form>
 					</>
 				) : (
 					<output>🎉 You're in!</output>
