@@ -83,9 +83,12 @@ if (request.method === "POST") {
 
 <style>
 	@layer page {
+		* {
+			display: grid;
+		}
+
 		main {
 			max-width: min(50ch, 100%);
-			display: grid;
 			gap: var(--space-xs);
 			padding-block: var(--space-xl);
 			padding-inline: var(--space-s);
@@ -93,12 +96,10 @@ if (request.method === "POST") {
 		}
 
 		form {
-			display: grid;
 			gap: var(--space-xs);
 		}
 
 		label {
-			display: grid;
 			gap: var(--space-3xs);
 			color: var(--text-2);
 		}
@@ -114,7 +115,6 @@ if (request.method === "POST") {
 		}
 
 		.output {
-			display: grid;
 			place-content: center;
 		}
 	}
