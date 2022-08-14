@@ -3,6 +3,23 @@ import Layout from "./_layout.astro";
 import Button from "~/components/Button.astro";
 import Input from "~/components/Input.astro";
 import Card from "~/components/Card.astro";
+
+const { request } = Astro;
+
+let data: Record<string, unknown> = {};
+
+if (request.method === "POST") {
+	switch (request.headers.get("Content-Type")) {
+		case "application/json": {
+			data = await request.json();
+			return new Response("we gucci", { status: 200 });
+		}
+		case "application/x-www-form-urlencoded": {
+			data = Object.fromEntries(await request.formData());
+			break;
+		}
+	}
+}
 ---
 
 <Layout>
@@ -33,20 +50,28 @@ import Card from "~/components/Card.astro";
 		<hr />
 
 		<Card>
-			<h2>Sign up for a sneak peak</h2>
-			<form>
-				<label>
-					<span>Name</span>
-					<Input type="text" placeholder="You" />
-				</label>
+			{
+				Object.entries(data).length === 0 ? (
+					<>
+						<h2>Sign up for a sneak peak</h2>
+						<form method="post">
+							<label>
+								<span>Name</span>
+								<Input type="text" placeholder="You" name="name" />
+							</label>
 
-				<label>
-					<span>Email</span>
-					<Input type="email" placeholder="you@example.com" required />
-				</label>
+							<label>
+								<span>Email</span>
+								<Input type="email" placeholder="you@example.com" name="email" required />
+							</label>
 
-				<Button class="cta">Sign up</Button>
-			</form>
+							<Button class="cta">Sign up</Button>
+						</form>
+					</>
+				) : (
+					<output>🎉 You're in!</output>
+				)
+			}
 		</Card>
 	</main>
 </Layout>
@@ -81,6 +106,12 @@ import Card from "~/components/Card.astro";
 			border: none;
 			background-color: var(--accent-2);
 			color: var(--text-1);
+		}
+
+		output {
+			font-size: var(--step-1);
+			display: grid;
+			place-content: center;
 		}
 	}
 </style>
