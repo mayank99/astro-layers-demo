@@ -4,6 +4,7 @@ import Button from "~/components/Button.astro";
 import Input from "~/components/Input.astro";
 import Card from "~/components/Card.astro";
 import Form from "~/components/Form";
+import Output from "~/components/Output";
 
 const { request } = Astro;
 
@@ -55,30 +56,27 @@ if (request.method === "POST") {
 		<hr />
 
 		<Card>
-			{
-				Object.entries(data).length === 0 ? (
-					<>
-						<h2>Sign up for a sneak peak</h2>
-						<Form method="post" client:load>
-							<label>
-								<span>Name</span>
-								<Input type="text" placeholder="You" name="name" />
-							</label>
+			<h2>Sign up for a sneak peak</h2>
+			<Form method="post" client:load>
+				<label>
+					<span>Name</span>
+					<Input type="text" placeholder="You" name="name" />
+				</label>
 
-							<label>
-								<span>Email</span>
-								<Input type="email" placeholder="you@example.com" name="email" required />
-							</label>
+				<label>
+					<span>Email</span>
+					<Input type="email" placeholder="you@example.com" name="email" required />
+				</label>
 
-							<Button class="cta" type="submit">
-								Sign up
-							</Button>
-						</Form>
-					</>
-				) : (
-					<output>🎉 You're in!</output>
-				)
-			}
+				<Button class="cta" type="submit">Sign up</Button>
+			</Form>
+
+			<Output
+				class='output'
+				successText={`🎉 You're in!`}
+				isSuccessful={Object.entries(data).length !== 0}
+				client:load
+			/>
 		</Card>
 	</main>
 </Layout>
@@ -115,8 +113,7 @@ if (request.method === "POST") {
 			color: var(--text-1);
 		}
 
-		output {
-			font-size: var(--step-1);
+		.output {
 			display: grid;
 			place-content: center;
 		}
