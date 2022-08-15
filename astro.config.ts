@@ -1,6 +1,8 @@
 import { defineConfig } from "astro/config";
 import solidJs from "@astrojs/solid-js";
-import netlify from "@astrojs/netlify/dist/integration-edge-functions";
+
+// @ts-ignore
+import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({

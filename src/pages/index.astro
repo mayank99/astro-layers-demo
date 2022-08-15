@@ -3,8 +3,6 @@ import Layout from "./_layout.astro";
 import Button from "~/components/Button.astro";
 import Input from "~/components/Input.astro";
 import Card from "~/components/Card.astro";
-import Form from "~/components/Form";
-import Output from "~/components/Output";
 
 const { request } = Astro;
 
@@ -57,7 +55,7 @@ if (request.method === "POST") {
 
 		<Card>
 			<h2>Sign up for a sneak peak</h2>
-			<Form method="post" client:load>
+			<form method="post">
 				<label>
 					<span>Name</span>
 					<Input type="text" placeholder="You" name="name" />
@@ -69,53 +67,48 @@ if (request.method === "POST") {
 				</label>
 
 				<Button class="cta" type="submit">Sign up</Button>
-			</Form>
+			</form>
 
-			<Output
-				class='output'
-				successText={`🎉 You're in!`}
-				isSuccessful={Object.entries(data).length !== 0}
-				client:load
-			/>
+			<output>{Object.entries(data).length !== 0 ? `🎉 You're in` : ""}</output>
 		</Card>
 	</main>
+
+	<style>
+		@layer page {
+			* {
+				display: grid;
+			}
+
+			main {
+				max-width: min(50ch, 100%);
+				gap: var(--space-xs);
+				padding-block: var(--space-xl);
+				padding-inline: var(--space-s);
+				align-self: start;
+			}
+
+			form {
+				gap: var(--space-xs);
+			}
+
+			label {
+				gap: var(--space-3xs);
+				color: var(--text-2);
+			}
+
+			hr {
+				margin-block: var(--space-xs);
+			}
+
+			.cta {
+				border: none;
+				background-color: var(--accent-2);
+				color: var(--text-1);
+			}
+
+			ooutput {
+				place-content: center;
+			}
+		}
+	</style>
 </Layout>
-
-<style>
-	@layer page {
-		* {
-			display: grid;
-		}
-
-		main {
-			max-width: min(50ch, 100%);
-			gap: var(--space-xs);
-			padding-block: var(--space-xl);
-			padding-inline: var(--space-s);
-			align-self: start;
-		}
-
-		form {
-			gap: var(--space-xs);
-		}
-
-		label {
-			gap: var(--space-3xs);
-			color: var(--text-2);
-		}
-
-		hr {
-			margin-block: var(--space-xs);
-		}
-
-		.cta {
-			border: none;
-			background-color: var(--accent-2);
-			color: var(--text-1);
-		}
-
-		.output {
-			place-content: center;
-		}
-	}
-</style>
