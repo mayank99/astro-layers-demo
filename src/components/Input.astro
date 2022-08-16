@@ -1,0 +1,17 @@
+<input {...Astro.props} />
+
+<style>
+	@layer components {
+		input {
+			background-color: var(--background-2);
+			border-radius: var(--space-3xs);
+			border: 1px solid var(--background-3);
+			padding-inline: var(--space-xs);
+			padding-block: var(--space-2xs);
+		}
+
+		input:disabled {
+			opacity: 0.5;
+		}
+	}
+</style>

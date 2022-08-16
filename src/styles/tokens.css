@@ -1,0 +1,78 @@
+@layer tokens {
+	:root {
+		--space-3xs: clamp(0.31rem, 0.29rem + 0.12vw, 0.38rem);
+		--space-2xs: clamp(0.69rem, 0.66rem + 0.12vw, 0.75rem);
+		--space-xs: clamp(1rem, 0.95rem + 0.24vw, 1.13rem);
+		--space-s: clamp(1.31rem, 1.24rem + 0.37vw, 1.5rem);
+		--space-m: clamp(2rem, 1.9rem + 0.49vw, 2.25rem);
+		--space-l: clamp(2.63rem, 2.48rem + 0.73vw, 3rem);
+		--space-xl: clamp(3.94rem, 3.72rem + 1.1vw, 4.5rem);
+		--space-2xl: clamp(5.25rem, 4.96rem + 1.46vw, 6rem);
+		--space-3xl: clamp(7.88rem, 7.44rem + 2.2vw, 9rem);
+
+		--step--2: clamp(0.69rem, 0.59rem + 0.52vw, 0.96rem);
+		--step--1: clamp(0.83rem, 0.69rem + 0.72vw, 1.2rem);
+		--step-0: clamp(1rem, 0.8rem + 0.98vw, 1.5rem);
+		--step-1: clamp(1.2rem, 0.94rem + 1.32vw, 1.88rem);
+		--step-2: clamp(1.44rem, 1.09rem + 1.76vw, 2.34rem);
+		--step-3: clamp(1.73rem, 1.26rem + 2.35vw, 2.93rem);
+		--step-4: clamp(2.07rem, 1.45rem + 3.1vw, 3.66rem);
+		--step-5: clamp(2.49rem, 1.67rem + 4.08vw, 4.58rem);
+
+        --blue-gray-0: #0e0e11;
+		--blue-gray-1: #21222a;
+		--blue-gray-2: #343544;
+		--blue-gray-3: #484a5e;
+		--blue-gray-4: #5c5f78;
+		--blue-gray-5: #717490;
+		--blue-gray-6: #8789a6;
+		--blue-gray-7: #9c9eba;
+		--blue-gray-8: #b1b3cb;
+		--blue-gray-9: #c6c8db;
+		--blue-gray-10: #dcdce9;
+		--blue-gray-11: #f1f1f6;
+		--blue-gray-12: #fdfdff;
+		--violet-0: #100718;
+		--violet-1: #211239;
+		--violet-2: #32195c;
+		--violet-3: #43217f;
+		--violet-4: #572da0;
+		--violet-5: #6c3dbe;
+		--violet-6: #8452d5;
+		--violet-7: #9c6be7;
+		--violet-8: #b488f3;
+		--violet-9: #cca8fa;
+		--violet-10: #e1cafe;
+		--violet-11: #f6eeff;
+	}
+
+    :root {
+		--border-radius: var(--space-3xs);
+
+		--background-1: var(--blue-gray-2);
+		--background-2: var(--blue-gray-1);
+		--background-3: var(--blue-gray-0);
+
+		--text-1: var(--blue-gray-11);
+		--text-2: var(--blue-gray-8);
+		--text-3: var(--gray-gray-7);
+
+		--accent-1: var(--violet-7);
+		--accent-2: var(--violet-4);
+	}
+
+	@media (prefers-color-scheme: light) {
+		:root {
+			--background-1: var(--blue-gray-12);
+			--background-2: var(--blue-gray-11);
+			--background-3: var(--blue-gray-8);
+
+			--text-1: var(--blue-gray-2);
+			--text-2: var(--blue-gray-4);
+			--text-3: var(--blue-gray-6);
+
+			--accent-1: var(--violet-4);
+			--accent-2: var(--violet-10);
+		}
+	}
+}

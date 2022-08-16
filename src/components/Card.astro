@@ -1,0 +1,29 @@
+<article {...Astro.props}>
+	<slot />
+</article>
+
+<style>
+	@layer components {
+		article {
+			display: grid;
+			gap: var(--space-xs);
+			align-self: start;
+			background: var(--background-1);
+			border-radius: var(--space-3xs);
+			padding: var(--space-s);
+			box-shadow: var(--shadow-2);
+		}
+
+		article > :global(h1, h2, h3) {
+			font-weight: 500;
+		}
+	}
+
+	@layer overrides {
+		@media (forced-colors: active) {
+			article {
+				border: 1px solid;
+			}
+		}
+	}
+</style>
