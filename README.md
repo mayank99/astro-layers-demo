@@ -1,7 +1,15 @@
 # astro + cascade layers
 
-This repo will showcase how to build a modern website using:
+This repo will showcase how to build a modern website using CSS cascade layers and Astro.
 
-- CSS cascade layers
-- Progressively enhanced forms with Astro SSR
-- Astro islands + SolidJS
+## development
+
+Clone the repo and run the following commands:
+
+```
+npm i
+```
+
+```
+npm run dev
+```
